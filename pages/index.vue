@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <Movies />
+    <button @click="showData">
+      Click
+    </button>
   </div>
 </template>
 
@@ -17,6 +19,11 @@ export default Vue.extend({
     return {
       movies: moviesStore.moviesList,
       people: peopleStore.peopleList
+    }
+  },
+  methods: {
+    showData () {
+      console.log(this.movies)
     }
   }
 
