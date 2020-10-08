@@ -10,17 +10,18 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import moviesList from '@/store/modules/movies'
-
+// import { moviesStore } from '@/store/index'
 @Component
 export default class Movies extends Vue {
-  movies:any=[]
+  // @Prop({ type: Object, required: true })
+  // id:any
+  // movies:any=[]
 
-  created () {
-    moviesList.getMovies().then(() => {
-      this.movies = moviesList.moviesList
-    })
-  }
+  // fetch () {
+  //   moviesStore.getMovies().then(() => {
+  //     this.movies = moviesStore.moviesList
+  //     console.log(this.movies)
+  //   })
 }
 
 </script>

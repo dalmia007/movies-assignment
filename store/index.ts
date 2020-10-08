@@ -1,17 +1,14 @@
-import Vuex from 'vuex'
-// import MoviesModule from '~/store/modules/movies'
-// import People from '~/store/modules/people'
 
-const store:any = () => {
-  return new Vuex.Store({
-    // modules: {
-    //   movies: MoviesModule
-    //   // people: People
-    // },
-    state: {},
-    mutations: {},
-    actions: {}
-  })
+import { getModule } from 'vuex-module-decorators'
+import { Store } from 'vuex'
+
+import MoviesModule from '~/store/movies'
+
+// eslint-disable-next-line import/no-mutable-exports
+export let moviesStore : MoviesModule
+
+function initializeStores (store: Store<any>): void {
+  moviesStore = getModule(MoviesModule, store)
 }
 
-export default store
+export const plugins = [initializeStores]

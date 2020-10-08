@@ -1,10 +1,11 @@
-import { Module, VuexModule, Mutation, Action, getModule } from 'vuex-module-decorators'
+import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
 import axios from 'axios'
 
-import store from '@/store'
+// import store from '~/store/indeadaddx'
 
-const apiKey: string | undefined = process.env.API_KEY
-const moviesUrl: string = 'https://api.themoviedb.org/3/movie/top_rated?api_key=' + apiKey
+// const apiKey: string | undefined = process.env.API_KEY
+// const moviesUrl: string = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`
+const moviesUrl: string = 'https://api.themoviedb.org/3/movie/top_rated?api_key=6067e7664cd96e42ae8ba3d2fcd1bf53'
 
 interface Movies {
   id: number
@@ -16,11 +17,11 @@ interface Movies {
 @Module({
   name: 'movies',
   stateFactory: true,
-  namespaced: true,
-  store
+  namespaced: true
+  // store
 })
 
-class MoviesModule extends VuexModule {
+export default class MoviesModule extends VuexModule {
   moviesList: Movies[] =[]
 
   @Mutation
@@ -36,10 +37,6 @@ class MoviesModule extends VuexModule {
     }))
   }
 
-  get Movies () {
-    return this.moviesList
-  }
-
   @Action({ commit: 'setMovies' })
   async getMovies () {
     const response = await axios.get(moviesUrl)
@@ -47,5 +44,3 @@ class MoviesModule extends VuexModule {
     return movies
   }
 }
-
-export default getModule(MoviesModule)
