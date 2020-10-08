@@ -11,15 +11,15 @@ import Vue from 'vue'
 import { moviesStore, peopleStore } from '@/store/index'
 
 export default Vue.extend({
-  asyncData () {
-    moviesStore.getMovies()
-    peopleStore.getPeople()
-  },
   data () {
     return {
       movies: moviesStore.moviesList,
       people: peopleStore.peopleList
     }
+  },
+  created () {
+    moviesStore.getMovies()
+    peopleStore.getPeople()
   },
   methods: {
     showData () {
