@@ -1,13 +1,11 @@
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
 import axios from 'axios'
 
-// import store from '~/store/indeadaddx'
-
 // const apiKey: string | undefined = process.env.API_KEY
 // const moviesUrl: string = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`
 const moviesUrl: string = 'https://api.themoviedb.org/3/movie/top_rated?api_key=6067e7664cd96e42ae8ba3d2fcd1bf53'
 
-interface Movies {
+interface MoviesData {
   id: number
   title: string
   poster: string
@@ -22,15 +20,15 @@ interface Movies {
 })
 
 export default class MoviesModule extends VuexModule {
-  moviesList: Movies[] =[]
+  moviesList: MoviesData[] =[]
 
   @Mutation
-  setMovies (movies: Movies[]) {
+  setMovies (movies: MoviesData[]) {
     return (movies.map((movie: any) => {
-      const result : Movies = {
+      const result : MoviesData = {
         id: movie.id,
         title: movie.title,
-        poster: 'https://image.tmdb.org/t/p/original/' + movie.poster_path,
+        poster: 'https://image.tmdb.org/t/p/original' + movie.poster_path,
         rating: movie.vote_average
       }
       this.moviesList.push(result)

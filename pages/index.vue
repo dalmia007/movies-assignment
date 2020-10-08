@@ -6,15 +6,17 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { moviesStore } from '@/store/index'
+import { moviesStore, peopleStore } from '@/store/index'
 
 export default Vue.extend({
   asyncData () {
     moviesStore.getMovies()
+    peopleStore.getPeople()
   },
   data () {
     return {
-      movies: []
+      movies: moviesStore.moviesList,
+      people: peopleStore.peopleList
     }
   }
 
