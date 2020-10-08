@@ -1,7 +1,7 @@
 <template>
-  <index>
-    <Navbar />
-  </index>
+  <div>
+    hola amigo
+  </div>
 </template>
 
 <script lang="ts">

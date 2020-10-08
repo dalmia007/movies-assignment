@@ -22,14 +22,16 @@ export default class PeopleModule extends VuexModule {
 
   @Mutation
   setPeople (peoples: PeopleData[]) {
-    return (peoples.map((people: any) => {
-      const result : PeopleData = {
+    const result:PeopleData[] = []
+    peoples.map((people: any) => {
+      const elements: PeopleData = {
         id: people.id,
         name: people.name,
         image: 'https://image.tmdb.org/t/p/original' + people.profile_path
       }
-      this.peopleList.push(result)
-    }))
+      result.push(elements)
+    })
+    this.peopleList = result
   }
 
   @Action({ commit: 'setPeople' })

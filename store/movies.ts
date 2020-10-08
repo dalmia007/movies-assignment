@@ -24,15 +24,17 @@ export default class MoviesModule extends VuexModule {
 
   @Mutation
   setMovies (movies: MoviesData[]) {
-    return (movies.map((movie: any) => {
-      const result : MoviesData = {
+    const result:MoviesData[] = []
+    movies.map((movie: any) => {
+      const elements: MoviesData = {
         id: movie.id,
         title: movie.title,
         poster: 'https://image.tmdb.org/t/p/original' + movie.poster_path,
         rating: movie.vote_average
       }
-      this.moviesList.push(result)
-    }))
+      result.push(elements)
+    })
+    this.moviesList = result
   }
 
   @Action({ commit: 'setMovies' })

@@ -20,6 +20,7 @@ export default Vue.extend({
   created () {
     moviesStore.getMovies()
     peopleStore.getPeople()
+    console.log('server')
   },
   methods: {
     showData () {
