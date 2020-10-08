@@ -9,18 +9,20 @@
 </template>
 
 <script lang="ts">
-import { Vue } from 'vue-property-decorator'
-export default class Movies extends Vue {
-  data () {
-    return {
-      movies: []
-    }
-  }
+import { Vue, Component } from 'vue-property-decorator'
+import moviesList from '@/store/modules/movies'
 
-  async () {
-    this.$store.getters.movies.Movies()
+@Component
+export default class Movies extends Vue {
+  movies:any=[]
+
+  created () {
+    moviesList.getMovies().then(() => {
+      this.movies = moviesList.moviesList
+    })
   }
 }
+
 </script>
 
 <style>

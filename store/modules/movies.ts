@@ -1,4 +1,4 @@
-import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
+import { Module, VuexModule, Mutation, Action, getModule } from 'vuex-module-decorators'
 import axios from 'axios'
 
 import store from '@/store'
@@ -20,7 +20,7 @@ interface Movies {
   store
 })
 
-export default class MoviesModule extends VuexModule {
+class MoviesModule extends VuexModule {
   moviesList: Movies[] =[]
 
   @Mutation
@@ -43,19 +43,9 @@ export default class MoviesModule extends VuexModule {
   @Action({ commit: 'setMovies' })
   async getMovies () {
     const response = await axios.get(moviesUrl)
-    return response.data.results
+    const movies = response.data.results
+    return movies
   }
 }
 
-//   @Mutation
-//   setMovies (movies: Movies[]) {
-//     return ((movies.map((movie: any) => {
-//       const result: MoviesData{
-//         id: movie.id,
-//         title: movie.title,
-//         poster: 'https://image.tmdb.org/t/p/original/' + movie.poster_path
-//       rating: movie.vote_average
-//     };
-//     return this.movies = result;
-//   })));
-// }
+export default getModule(MoviesModule)
