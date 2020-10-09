@@ -1,22 +1,32 @@
 <template>
-  <div>
-    hola amigo
+  <div class="bg-white">
+    <div class="container mx-auto ">
+      <div class="flex flex-wrap justify-center ">
+        <PeopleCard
+          v-for="people in peoples"
+          :key="people.id"
+          :people="people"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
-import Navbar from '~/components/Navbar.vue'
+import { Vue } from 'vue-property-decorator'
+import { peopleStore } from '@/store/index'
 
-@Component({
-  components: {
-    Navbar
+export default Vue.extend({
+  asyncData () {
+    return peopleStore.getPeople()
+  },
+  data () {
+    return {
+      peoples: peopleStore.peopleList
+    }
   }
+
 })
-
-export default class People extends Vue {
-
-}
 </script>
 
 <style>
