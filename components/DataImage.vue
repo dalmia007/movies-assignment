@@ -1,19 +1,19 @@
 <template>
-  <div class="people-image bg-cover" :style="{backgroundImage: 'url('+people.image+')'}" />
+  <div class="data-image bg-cover" :style="data.poster ? {backgroundImage: 'url('+data.poster+')'} :{backgroundImage: 'url('+data.image+')'} " />
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 @Component
-export default class PeopleImage extends Vue {
+export default class DataImage extends Vue {
   @Prop({ type: Object, required: true })
-  people:any
+  data:any
 }
 
 </script>
 
 <style>
-.people-image{
+.data-image{
   width: 100%;
   height:400px;
 }

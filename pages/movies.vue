@@ -2,10 +2,10 @@
   <div class="bg-white">
     <div class="container mx-auto ">
       <div class="flex flex-wrap justify-center ">
-        <MoviesCard
+        <DataCard
           v-for="movie in movies"
           :key="movie.id"
-          :movie="movie"
+          :data="movie"
         />
       </div>
     </div>

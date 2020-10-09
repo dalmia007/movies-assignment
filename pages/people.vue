@@ -2,10 +2,10 @@
   <div class="bg-white">
     <div class="container mx-auto ">
       <div class="flex flex-wrap justify-center ">
-        <PeopleCard
+        <DataCard
           v-for="people in peoples"
           :key="people.id"
-          :people="people"
+          :data="people"
         />
       </div>
     </div>
