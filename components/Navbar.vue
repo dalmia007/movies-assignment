@@ -30,11 +30,11 @@
       <nuxt-link to="/movies" class="text-white">
         Top Rated Movies
       </nuxt-link>
-      <nuxt-link
-        to="/people"
-        class="text-white"
-      >
+      <nuxt-link to="/people" class="text-white">
         Popular People
+      </nuxt-link>
+      <nuxt-link to="/favmovies" class="text-white">
+        Favorite Movies
       </nuxt-link>
     </nav>
   </div>

@@ -10,6 +10,7 @@ interface MoviesData {
   title: string
   poster: string
   rating: number
+  favorite: boolean
 }
 
 @Module({
@@ -20,7 +21,8 @@ interface MoviesData {
 
 export default class MoviesModule extends VuexModule {
   moviesList: MoviesData[] = []
-  searchedMoviesList: MoviesData[]= []
+  searchedMoviesList: MoviesData[] = []
+  favoriteMoviesList:MoviesData[] = []
 
   @Mutation
   setMovies (movies: MoviesData[]) {
@@ -31,12 +33,36 @@ export default class MoviesModule extends VuexModule {
           id: movie.id,
           title: movie.title,
           poster: 'https://image.tmdb.org/t/p/original' + movie.poster_path,
-          rating: movie.vote_average
+          rating: movie.vote_average,
+          favorite: !!this.favoriteMoviesList.find(movies => movies.id === movie.id)
         }
         result.push(elements)
       }
     })
     this.moviesList = result
+  }
+
+  @Mutation
+  toggleFavOriginalList (id: any) {
+    const clickedMovie: any = this.moviesList.find(movie => movie.id === id)
+    clickedMovie.favorite = !clickedMovie.favorite
+    if (clickedMovie.favorite === true) {
+      this.favoriteMoviesList.push(clickedMovie)
+    } else {
+      this.favoriteMoviesList = this.favoriteMoviesList.filter((movie) => { return movie.id !== id })
+    }
+  }
+
+  @Mutation
+  toggleFavFavList (id: any) {
+    const clickedMovie: any = this.favoriteMoviesList.find(movie => movie.id === id)
+    clickedMovie.favorite = !clickedMovie.favorite
+    if (clickedMovie.favorite === true) {
+      this.favoriteMoviesList.push(clickedMovie)
+    } else {
+      this.favoriteMoviesList = this.favoriteMoviesList.filter((movie) => { return movie.id !== id })
+      return 'deleted'
+    }
   }
 
   @Mutation
@@ -48,7 +74,8 @@ export default class MoviesModule extends VuexModule {
           id: movie.id,
           title: movie.title,
           poster: 'https://image.tmdb.org/t/p/original' + movie.poster_path,
-          rating: movie.vote_average
+          rating: movie.vote_average,
+          favorite: false
         }
         result.push(elements)
       }
