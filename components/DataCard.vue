@@ -10,7 +10,11 @@
           {{ data.name }}
         </h2>
         <p v-if="data.rating" class="mb-4 text-white text-sm ">
-          {{ data.rating }}
+          <img src="~/assets/star.svg" width="8%" class="inline">
+          <span class="align-middle p-1">{{ data.rating }}</span>
+        </p>
+        <p v-if="data.rating === 0" class="mb-4 text-white text-sm ">
+          <span>No Rating</span>
         </p>
       </div>
     </a>
