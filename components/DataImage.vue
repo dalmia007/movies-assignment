@@ -1,5 +1,5 @@
 <template>
-  <div class="data-image bg-cover" :style="data.poster ? {backgroundImage: 'url('+data.poster+')'} :{backgroundImage: 'url('+data.image+')'} " />
+  <div class="data-image bg-cover hover:opacity-75" :style="data.poster ? {backgroundImage: 'url('+data.poster+')'} :{backgroundImage: 'url('+data.image+')'} " />
 </template>
 
 <script lang="ts">
