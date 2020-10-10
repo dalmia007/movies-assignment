@@ -1,6 +1,6 @@
 <template>
   <div class="rounded cursor-pointer shadow-lg overflow-hidden m-2 data-card">
-    <a :href=" data.title ?('https://www.themoviedb.org/movie/'+ data.id): ('https://www.themoviedb.org/person/'+ data.id) ">
+    <a :href=" data.title ?('https://www.themoviedb.org/movie/'+ data.id): ('https://www.themoviedb.org/person/'+ data.id) " target="_blank">
       <DataImage :data="data" />
       <div class="px-6 py-4 bg-black ">
         <h2 v-if="data.title" class="mb-2 text-white truncate">
