@@ -1,12 +1,9 @@
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
 import axios from 'axios'
 
-// const apiKey: string | undefined = process.env.API_KEY
-// const moviesUrl: string = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`
-// const searchMoviesUrl: string = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=`
-
-const moviesUrl: string = 'https://api.themoviedb.org/3/movie/top_rated?api_key=6067e7664cd96e42ae8ba3d2fcd1bf53'
-const searchMoviesUrl: string = 'https://api.themoviedb.org/3/search/movie?api_key=6067e7664cd96e42ae8ba3d2fcd1bf53&query='
+const apiKey: string | undefined = process.env.API_KEY
+const moviesUrl: string = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`
+const searchMoviesUrl: string = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=`
 
 interface MoviesData {
   id: number
