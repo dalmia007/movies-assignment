@@ -17,9 +17,6 @@ import { Vue } from 'vue-property-decorator'
 import { moviesStore } from '@/store/index'
 
 export default Vue.extend({
-  asyncData () {
-    return moviesStore.getMovies()
-  },
   data () {
     return {
       movies: moviesStore.favoriteMoviesList

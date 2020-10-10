@@ -35,15 +35,15 @@ import { moviesStore } from '@/store/index'
 })
 export default class Card extends Vue {
   @Prop({ type: Object, required: true })
-  data:any
+  data: any
 
-  fav (id:any) {
+  fav (id:number) {
     if (this.$route.name === 'movies') {
       return moviesStore.toggleFavOriginalList(id)
     } else if (this.$route.name === 'search-movies-id') {
       return moviesStore.toogleSearchedMoviesList(id)
     } else {
-      return moviesStore.toggleFavFavList(id)
+      moviesStore.toggleFavFavList(id)
     }
   }
 }
