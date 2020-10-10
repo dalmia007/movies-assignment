@@ -15,7 +15,7 @@
               @change="getInput"
               @keyup.enter="onClick"
             >
-            <select v-model="selected" class="relative appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" @change="onChange">
+            <select v-model="selected" class="relative w-half bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" @change="onChange">
               <option value="1">
                 Movies
               </option>
@@ -23,7 +23,7 @@
                 People
               </option>
             </select>
-            <button class="bg-red-400 hover:bg-red-300 rounded text-white p-2 pl-4 pr-4" @click="onClick">
+            <button class="bg-red-400 hover:bg-red-300 rounded text-white p-2 pl-4 pr-4 ml-1" @click="onClick">
               <p class="font-semibold text-xs">
                 Search
               </p>
