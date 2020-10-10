@@ -51,7 +51,7 @@ export default class Navbar extends Vue {
   }
 
   onClick () {
-    if (this.selected === 1) {
+    if (this.selected < 2) {
       this.searchMovies(this.input)
     } else {
       this.searchPeople(this.input)
