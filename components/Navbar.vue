@@ -5,7 +5,14 @@
         <span class="w-auto flex justify-end items-center text-gray-500 p-2">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" text-gray-500 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
         </span>
-        <input class="w-full rounded p-2 " type="text" placeholder="Try 'Mulan'" @change="getInput" @keyup.enter="onClick">
+        <input
+          v-model="input"
+          class="w-full rounded p-2 "
+          type="text"
+          placeholder="Try 'Batman'"
+          @change="getInput"
+          @keyup.enter="onClick"
+        >
         <select v-model="selected" class="relative appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" @change="onChange">
           <option value="1">
             Movies
@@ -39,8 +46,8 @@ import { moviesStore, peopleStore } from '@/store/index'
 
 @Component
 export default class Navbar extends Vue {
-  input = ''
-  selected = 1
+  input : string = ''
+  selected: number = 1
 
   onChange (event:any) {
     this.selected = event.target.value
@@ -53,22 +60,22 @@ export default class Navbar extends Vue {
   onClick () {
     if (this.selected < 2) {
       this.searchMovies(this.input)
+      this.input = ''
     } else {
       this.searchPeople(this.input)
+      this.input = ''
     }
   }
 
   searchMovies (input:any) {
     moviesStore.searchMovies(input).then(() => {
       this.$router.replace({ name: 'search-movies-id', params: { id: input, routeNumber: this.selected.toString() } })
-      input = ''
     })
   }
 
   searchPeople (input:any) {
     peopleStore.searchPeople(input).then(() => {
       this.$router.replace({ name: 'search-people-id', params: { id: input, routeNumber: this.selected.toString() } })
-      input = ''
     })
   }
 }
