@@ -60,14 +60,14 @@ export default class Navbar extends Vue {
 
   searchMovies (input:any) {
     moviesStore.searchMovies(input).then(() => {
-      this.$router.push('/search')
+      this.$router.replace({ name: 'search-movies-id', params: { id: input, routeNumber: this.selected.toString() } })
       input = ''
     })
   }
 
   searchPeople (input:any) {
     peopleStore.searchPeople(input).then(() => {
-      this.$router.push({ name: 'search', params: { routeNumber: this.selected.toString() } })
+      this.$router.replace({ name: 'search-people-id', params: { id: input, routeNumber: this.selected.toString() } })
       input = ''
     })
   }
