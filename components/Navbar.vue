@@ -39,17 +39,17 @@
       </div>
       <div class=" px-2 py-2 sm:flex " :class="isOpen ? 'block' : 'hidden'">
         <div class="flex justify-center py-1">
-          <nuxt-link to="/movies" class="text-white px-2 hover:text-yellow-400 block ">
+          <nuxt-link to="/movies" class="text-white px-2 hover:text-yellow-400 block text-center">
             Top Rated Movies
           </nuxt-link>
         </div>
         <div class="flex justify-center py-1">
-          <nuxt-link to="/people" class="text-white px-2  hover:text-yellow-400 block ">
+          <nuxt-link to="/people" class="text-white px-2  hover:text-yellow-400 block text-center ">
             Popular People
           </nuxt-link>
         </div>
         <div class="flex justify-center py-1">
-          <nuxt-link to="/favmovies" class="text-white px-2  hover:text-yellow-400 block ">
+          <nuxt-link to="/favmovies" class="text-white px-2  hover:text-yellow-400 block  text-center">
             Favorite Movies
           </nuxt-link>
         </div>
