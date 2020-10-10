@@ -40,6 +40,8 @@ export default class Card extends Vue {
   fav (id:any) {
     if (this.$route.name === 'movies') {
       return moviesStore.toggleFavOriginalList(id)
+    } else if (this.$route.name === 'search-movies-id') {
+      return moviesStore.toogleSearchedMoviesList(id)
     } else {
       return moviesStore.toggleFavFavList(id)
     }

@@ -43,6 +43,24 @@ export default class MoviesModule extends VuexModule {
   }
 
   @Mutation
+  setSearchedMovies (movies: MoviesData[]) {
+    const result:MoviesData[] = []
+    movies.map((movie: any) => {
+      if (movie.poster_path != null) {
+        const elements: MoviesData = {
+          id: movie.id,
+          title: movie.title,
+          poster: 'https://image.tmdb.org/t/p/original' + movie.poster_path,
+          rating: movie.vote_average,
+          favorite: !!this.favoriteMoviesList.find(movies => movies.id === movie.id)
+        }
+        result.push(elements)
+      }
+    })
+    this.searchedMoviesList = result
+  }
+
+  @Mutation
   toggleFavOriginalList (id: any) {
     const clickedMovie: any = this.moviesList.find(movie => movie.id === id)
     clickedMovie.favorite = !clickedMovie.favorite
@@ -61,26 +79,18 @@ export default class MoviesModule extends VuexModule {
       this.favoriteMoviesList.push(clickedMovie)
     } else {
       this.favoriteMoviesList = this.favoriteMoviesList.filter((movie) => { return movie.id !== id })
-      return 'deleted'
     }
   }
 
   @Mutation
-  setSearchedMovies (movies: MoviesData[]) {
-    const result:MoviesData[] = []
-    movies.map((movie: any) => {
-      if (movie.poster_path != null) {
-        const elements: MoviesData = {
-          id: movie.id,
-          title: movie.title,
-          poster: 'https://image.tmdb.org/t/p/original' + movie.poster_path,
-          rating: movie.vote_average,
-          favorite: false
-        }
-        result.push(elements)
-      }
-    })
-    this.searchedMoviesList = result
+  toogleSearchedMoviesList (id: any) {
+    const clickedMovie: any = this.searchedMoviesList.find(movie => movie.id === id)
+    clickedMovie.favorite = !clickedMovie.favorite
+    if (clickedMovie.favorite === true) {
+      this.favoriteMoviesList.push(clickedMovie)
+    } else {
+      this.favoriteMoviesList = this.favoriteMoviesList.filter((movie) => { return movie.id !== id })
+    }
   }
 
   @Action({ commit: 'setMovies' })
