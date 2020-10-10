@@ -20,9 +20,9 @@ export default Vue.extend({
   asyncData () {
     return moviesStore.getMovies()
   },
-  data () {
-    return {
-      movies: moviesStore.moviesList
+  computed: {
+    movies () {
+      return moviesStore.moviesList
     }
   }
 

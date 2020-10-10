@@ -17,9 +17,9 @@ import { Vue } from 'vue-property-decorator'
 import { moviesStore } from '@/store/index'
 
 export default Vue.extend({
-  data () {
-    return {
-      movies: moviesStore.favoriteMoviesList
+  computed: {
+    movies () {
+      return moviesStore.favoriteMoviesList
     }
   }
 

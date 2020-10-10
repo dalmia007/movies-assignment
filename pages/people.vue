@@ -20,9 +20,9 @@ export default Vue.extend({
   asyncData () {
     return peopleStore.getPeople()
   },
-  data () {
-    return {
-      peoples: peopleStore.peopleList
+  computed: {
+    peoples () {
+      return peopleStore.peopleList
     }
   }
 
