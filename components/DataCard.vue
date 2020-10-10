@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded cursor-pointer shadow-lg overflow-hidden m-2 data-card">
+  <div class="rounded shadow-lg overflow-hidden m-2  transition duration-325 transform hover:-translate-y-1  hover:-translate-x-1 hover:scale-101 data-card">
     <a :href=" data.title ?('https://www.themoviedb.org/movie/'+ data.id): ('https://www.themoviedb.org/person/'+ data.id) " target="_blank">
       <DataImage :data="data" />
     </a>
@@ -10,17 +10,15 @@
       <h2 v-else class="mb-2 text-white truncate">
         {{ data.name }}
       </h2>
-      <p v-if="data.rating" class="mb-4 text-white text-sm ">
+      <p v-if="data.rating" class="mb-4 text-white text-m ">
         <img src="~/assets/star.svg" width="8%" class="inline">
         <span class="align-middle p-1">{{ data.rating }}</span>
+        <img v-if="data.favorite === false" src="~/assets/not_fav.svg" width="8%" class="inline cursor-pointer ml-4" @click="fav(data.id)">
+        <img v-if="data.favorite === true" src="~/assets/fav.svg" width="8%" class="inline cursor-pointer ml-4" @click="fav(data.id)">
       </p>
       <p v-if="data.rating === 0" class="mb-4 text-white text-sm ">
         <span>No Rating</span>
       </p>
-      <div>
-        <img v-if="data.favorite === false" src="~/assets/not_fav.svg" width="8%" class="inline" @click="fav(data.id)">
-        <img v-if="data.favorite === true" src="~/assets/fav.svg" width="8%" class="inline" @click="fav(data.id)">
-      </div>
     </div>
   </div>
 </template>
@@ -52,12 +50,6 @@ export default class Card extends Vue {
 
 <style>
 .data-card{
-  width: 300px;
-  transition: 0.3s;
+    width: 300px;
 }
-
-.data-card:hover{
-  transform: scale(1.025,1.025);
-}
-
 </style>
