@@ -1,12 +1,15 @@
 <template>
   <div class="bg-white">
     <div class="container mx-auto ">
-      <div class="flex flex-wrap justify-center">
+      <div v-if="datas.length!=0" class="flex flex-wrap justify-center">
         <DataCard
           v-for="data in datas"
           :key="data.id"
           :data="data"
         />
+      </div>
+      <div v-else class="flex flex-wrap justify-center py-10 ">
+        <img src="~/assets/noresult.png" sm:width="75%">
       </div>
     </div>
   </div>

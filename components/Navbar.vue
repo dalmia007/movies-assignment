@@ -39,17 +39,17 @@
       </div>
       <div class=" px-2 py-2 sm:flex " :class="isOpen ? 'block' : 'hidden'">
         <div class="flex justify-center py-1">
-          <nuxt-link to="/movies" class="text-blue-400 text-opacity-75 px-2 hover:text-opacity-100 block text-center">
+          <nuxt-link to="/movies" class="text-white text-opacity-75 px-2 hover:text-opacity-100 block text-center">
             Top Rated Movies
           </nuxt-link>
         </div>
         <div class="flex justify-center py-1">
-          <nuxt-link to="/people" class="text-blue-400 text-opacity-75 px-2  hover:text-opacity-100 block text-center ">
+          <nuxt-link to="/people" class="text-white text-opacity-75 px-2  hover:text-opacity-100 block text-center ">
             Popular People
           </nuxt-link>
         </div>
         <div class="flex justify-center py-1">
-          <nuxt-link to="/favmovies" class="text-blue-400 text-opacity-75 px-2  hover:text-opacity-100 block  text-center">
+          <nuxt-link to="/favmovies" class="text-white text-opacity-75 px-2  hover:text-opacity-100 block  text-center">
             Favorite Movies
           </nuxt-link>
         </div>
@@ -105,6 +105,7 @@ export default class Navbar extends Vue {
 
 <style>
 .nuxt-link-active {
-    color:white
+    color:black;
+    background:white
 }
 </style>
