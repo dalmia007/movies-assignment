@@ -23,7 +23,7 @@
                 People
               </option>
             </select>
-            <button class="bg-red-400 hover:bg-red-300 rounded text-white p-2 pl-4 pr-4 ml-1" @click="onClick">
+            <button class="bg-black hover:opacity-75 rounded text-white p-2 pl-4 pr-4 ml-1" @click="onClick">
               <p class="font-semibold text-xs">
                 Search
               </p>
@@ -39,17 +39,17 @@
       </div>
       <div class=" px-2 py-2 sm:flex " :class="isOpen ? 'block' : 'hidden'">
         <div class="flex justify-center py-1">
-          <nuxt-link to="/movies" class="text-white text-opacity-75 px-2 hover:text-opacity-100 block text-center">
+          <nuxt-link to="/movies" class="text-white text-opacity-75 px-2 hover:text-opacity-100 block text-center rounded">
             Top Rated Movies
           </nuxt-link>
         </div>
         <div class="flex justify-center py-1">
-          <nuxt-link to="/people" class="text-white text-opacity-75 px-2  hover:text-opacity-100 block text-center ">
+          <nuxt-link to="/people" class="text-white text-opacity-75 px-2  hover:text-opacity-100 block text-center rounded ">
             Popular People
           </nuxt-link>
         </div>
         <div class="flex justify-center py-1">
-          <nuxt-link to="/favmovies" class="text-white text-opacity-75 px-2  hover:text-opacity-100 block  text-center">
+          <nuxt-link to="/favmovies" class="text-white text-opacity-75 px-2  hover:text-opacity-100 block  text-center rounded">
             Favorite Movies
           </nuxt-link>
         </div>
