@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded shadow-lg overflow-hidden m-2  transition duration-325 transform hover:-translate-y-1  hover:-translate-x-1 hover:scale-101 data-card">
+  <div class="rounded shadow-lg overflow-hidden m-2  transition duration-325 transform hover:-translate-y-1  hover:-translate-x-1 hover:scale-101 shadow-2xl data-card">
     <a :href=" data.title ?('https://www.themoviedb.org/movie/'+ data.id): ('https://www.themoviedb.org/person/'+ data.id) " target="_blank">
       <DataImage :data="data" />
     </a>
