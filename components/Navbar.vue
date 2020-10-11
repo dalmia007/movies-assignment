@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav class=" sm:flex sm:justify-between sm:items-center  bg-black">
-      <div class="flex items-center justify-center flex-wrap p-2">
+      <div class="flex items-center justify-center flex-wrap p-2 sm:pl-3">
         <div class="flex items-center flex-shrink">
           <div class="bg-white shadow p-2 flex w-half rounded">
             <span class="w-auto flex justify-end items-center text-gray-500 p-2">
